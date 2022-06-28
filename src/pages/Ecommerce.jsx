@@ -37,6 +37,7 @@ const Ecommerce = () => {
 
   return (
     <div className="mt-24">
+      {/* The details cards*/}
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex justify-between items-center">
@@ -87,6 +88,7 @@ const Ecommerce = () => {
       </div>
 
       <div className="flex gap-10 flex-wrap justify-center">
+        {/* Revenue Updates */}
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <div className="flex justify-between">
             <p className="font-semibold text-xl">Revenue Updates</p>
@@ -147,6 +149,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
+        {/* Earnings */}
         <div>
           <div
             className=" rounded-2xl md:w-400 p-4 m-3"
@@ -248,6 +251,7 @@ const Ecommerce = () => {
       </div>
 
       <div className="flex flex-wrap justify-center">
+        {/* Weekly Stats */}
         <div className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Weekly Stats</p>
@@ -295,6 +299,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </div>
+        {/* MedicalPro Branding */}
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">MedicalPro Branding</p>
@@ -361,6 +366,7 @@ const Ecommerce = () => {
             <p className="text-gray-400 text-sm">36 Recent Transactions</p>
           </div>
         </div>
+        {/* Daily Activities */}
         <div className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Daily Activities</p>
