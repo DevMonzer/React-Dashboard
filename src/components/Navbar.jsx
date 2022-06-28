@@ -11,7 +11,30 @@ import { Cart, Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Navbar = () => {
-  return <div>Navbar</div>;
+  const { activeMenu, setActiveMenu } = useStateContext();
+
+  const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
+    <TooltipComponent content={title} position="BottomCenter">
+      <button
+        type="button"
+        onClick={() => customFunc()}
+        style={{ color }}
+        className="relative text-xl rounded-full p-3 hover:bg-light-gray"
+      >
+        <span
+          style={{ background: dotColor }}
+          className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
+        />
+        {icon}
+      </button>
+    </TooltipComponent>
+  );
+
+  return (
+    <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
+      Navbar
+    </div>
+  );
 };
 
 export default Navbar;
