@@ -46,9 +46,6 @@ const Sidebar = () => {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
-                    style={({ isActive }) => ({
-                      backgroundColor: isActive ? currentColor : "",
-                    })}
                     className={({ isActive }) =>
                       isActive ? activeLink : normalLink
                     }
