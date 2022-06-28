@@ -26,7 +26,7 @@ import {
 import "./App.css";
 
 const App = () => {
-  const activeMenu = false;
+  const activeMenu = true;
 
   return (
     <div className="">
@@ -65,6 +65,7 @@ const App = () => {
             </div>
             <div>
               <Routes>
+                {/* Routing */}
                 {/* dashboard  */}
                 <Route path="/" element={<Ecommerce />} />
                 <Route path="/ecommerce" element={<Ecommerce />} />
