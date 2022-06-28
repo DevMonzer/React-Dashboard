@@ -11,7 +11,8 @@ import { Cart, Chat, Notification, UserProfile } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } =
+    useStateContext();
 
   // A button for the navigation bar
   const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
@@ -33,6 +34,7 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
+      {/* The navBar icon */}
       <NavButton
         title="Menu"
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
@@ -40,12 +42,14 @@ const Navbar = () => {
         icon={<AiOutlineMenu />}
       />
       <div className="flex">
+        {/* The cart icon */}
         <NavButton
           title="Cart"
           customFunc={() => handleClick("cart")}
           color={"green"}
           icon={<FiShoppingCart />}
         />
+        {/* The chat icon */}
         <NavButton
           title="Chat"
           dotColor="#03C9D7"
@@ -53,6 +57,7 @@ const Navbar = () => {
           color={"green"}
           icon={<BsChatLeft />}
         />
+        {/* The notification icon */}
         <NavButton
           title="Notification"
           dotColor="rgb(254, 201, 15)"
@@ -60,6 +65,7 @@ const Navbar = () => {
           color={"green"}
           icon={<RiNotification3Line />}
         />
+        {/* The profile icon + name */}
         <TooltipComponent content="Profile" position="BottomCenter">
           <div
             className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
@@ -79,6 +85,12 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
+
+        {/* Open a specific component based on an onClick event */}
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );
