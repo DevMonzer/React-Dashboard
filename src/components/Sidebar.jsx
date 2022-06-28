@@ -16,6 +16,7 @@ const Sidebar = () => {
 
   return (
     <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
+      {/* Website Name */}
       {activeMenu && (
         <>
           <div className="flex justify-between items-center">
@@ -28,14 +29,13 @@ const Sidebar = () => {
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
                 type="button"
-                onClick={() => {}}
-                style={{ color: "black" }}
+                // onClick={() => {}}
                 className="text-xl rounded-full p-3 hover:bg-light-gray mt-4 block md:hidden"
-              >
-                <MdOutlineCancel />
-              </button>
+              ></button>
+              <MdOutlineCancel />
             </TooltipComponent>
           </div>
+          {/* Navbar Links */}
           <div className="mt-10 ">
             {links.map((item) => (
               <div key={item.title}>
