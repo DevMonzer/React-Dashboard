@@ -40,6 +40,34 @@ const App = () => {
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
             Navbar
           </div>
+          <div>
+            <Routes>
+              {/* dashboard  */}
+              <Route path="/" element={"Ecommerce"} />
+              <Route path="/ecommerce" element={"Ecommerce"} />
+
+              {/* pages  */}
+              <Route path="/orders" element={"orders"} />
+              <Route path="/employees" element={"employees"} />
+              <Route path="/customers" element={"customers"} />
+
+              {/* apps  */}
+              <Route path="/kanban" element={"kanban"} />
+              <Route path="/editor" element={"editor"} />
+              <Route path="/calendar" element={"calendar"} />
+              <Route path="/color-picker" element={"color-picker"} />
+
+              {/* charts  */}
+              <Route path="/line" element={"line"} />
+              <Route path="/area" element={"area"} />
+              <Route path="/bar" element={"bar"} />
+              <Route path="/pie" element={"pie"} />
+              <Route path="/financial" element={"financial"} />
+              <Route path="/color-mapping" element={"color-mapping"} />
+              <Route path="/pyramid" element={"pyramid"} />
+              <Route path="/stacked" element={"stacked"} />
+            </Routes>
+          </div>
         </div>
       </div>
     </BrowserRouter>
