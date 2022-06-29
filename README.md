@@ -1,1 +1,1 @@
-A react dashboard
+React Dashboard
