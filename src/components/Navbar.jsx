@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { FiShoppingCart } from "react-icons/fi";
-import { BsChatLeft } from "react-icons/bs";
-import { RiNotification3Line } from "react-icons/ri";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+import React, { useEffect } from 'react';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { FiShoppingCart } from 'react-icons/fi';
+import { BsChatLeft } from 'react-icons/bs';
+import { RiNotification3Line } from 'react-icons/ri';
+import { MdKeyboardArrowDown } from 'react-icons/md';
+import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import avatar from "../data/avatar.jpg";
-import { Cart, Chat, Notification, UserProfile } from ".";
-import { useStateContext } from "../contexts/ContextProvider";
+import avatar from '../data/avatar.jpg';
+import { Cart, Chat, Notification, UserProfile } from '.';
+import { useStateContext } from '../contexts/ContextProvider';
 
-// A button for the navigation bar
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">
     <button
@@ -29,28 +28,18 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 const Navbar = () => {
-  const {
-    currentColor,
-    activeMenu,
-    setActiveMenu,
-    handleClick,
-    isClicked,
-    setScreenSize,
-    screenSize,
-  } = useStateContext();
+  const { currentColor, activeMenu, setActiveMenu, handleClick, isClicked, setScreenSize, screenSize } = useStateContext();
 
-  // Lookup for a specific screen size so we turn off the navBar in (we wanna turn it off on mobile phones specifically)
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     handleResize();
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Set setActiveMenu to false if screen size is list than 900
   useEffect(() => {
     if (screenSize <= 900) {
       setActiveMenu(false);
@@ -63,42 +52,16 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
-      {/* The navBar icon */}
-      <NavButton
-        title="Menu"
-        customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
-        color={"green"}
-        icon={<AiOutlineMenu />}
-      />
+
+      <NavButton title="Menu" customFunc={handleActiveMenu} color={currentColor} icon={<AiOutlineMenu />} />
       <div className="flex">
-        {/* The cart icon */}
-        <NavButton
-          title="Cart"
-          customFunc={() => handleClick("cart")}
-          color={"green"}
-          icon={<FiShoppingCart />}
-        />
-        {/* The chat icon */}
-        <NavButton
-          title="Chat"
-          dotColor="#03C9D7"
-          customFunc={() => handleClick("chat")}
-          color={"green"}
-          icon={<BsChatLeft />}
-        />
-        {/* The notification icon */}
-        <NavButton
-          title="Notification"
-          dotColor="rgb(254, 201, 15)"
-          customFunc={() => handleClick("notification")}
-          color={"green"}
-          icon={<RiNotification3Line />}
-        />
-        {/* The profile icon + name */}
+        <NavButton title="Cart" customFunc={() => handleClick('cart')} color={currentColor} icon={<FiShoppingCart />} />
+        <NavButton title="Chat" dotColor="#03C9D7" customFunc={() => handleClick('chat')} color={currentColor} icon={<BsChatLeft />} />
+        <NavButton title="Notification" dotColor="rgb(254, 201, 15)" customFunc={() => handleClick('notification')} color={currentColor} icon={<RiNotification3Line />} />
         <TooltipComponent content="Profile" position="BottomCenter">
           <div
             className="flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
-            onClick={() => handleClick("userProfile")}
+            onClick={() => handleClick('userProfile')}
           >
             <img
               className="rounded-full w-8 h-8"
@@ -106,7 +69,7 @@ const Navbar = () => {
               alt="user-profile"
             />
             <p>
-              <span className="text-gray-400 text-14">Hi,</span>{" "}
+              <span className="text-gray-400 text-14">Hi,</span>{' '}
               <span className="text-gray-400 font-bold ml-1 text-14">
                 Michael
               </span>
@@ -115,11 +78,10 @@ const Navbar = () => {
           </div>
         </TooltipComponent>
 
-        {/* Open a specific component based on an onClick event */}
-        {isClicked.cart && <Cart />}
-        {isClicked.chat && <Chat />}
-        {isClicked.notification && <Notification />}
-        {isClicked.userProfile && <UserProfile />}
+        {isClicked.cart && (<Cart />)}
+        {isClicked.chat && (<Chat />)}
+        {isClicked.notification && (<Notification />)}
+        {isClicked.userProfile && (<UserProfile />)}
       </div>
     </div>
   );
